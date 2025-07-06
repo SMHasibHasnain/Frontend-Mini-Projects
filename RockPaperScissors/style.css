@@ -50,6 +50,8 @@ body {
 .container {
     width: 65%;
     height: 80%;
+    min-width: 50rem;
+    min-height: 50rem;
     /* padding: 1rem 2rem;  */
     background-color: rgb(255, 251, 238);
     border: .4rem solid black;
