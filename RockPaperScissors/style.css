@@ -1,0 +1,253 @@
+:root {
+    font-size: 10px;
+    font-family: atma;
+}
+html, body, head, h1, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.atma-light {
+    font-family: "Atma", system-ui;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .atma-regular {
+    font-family: "Atma", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .atma-medium {
+    font-family: "Atma", system-ui;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .atma-semibold {
+    font-family: "Atma", system-ui;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .atma-bold {
+    font-family: "Atma", system-ui;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+
+body {
+    background-color: #e9e9e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    width: 65%;
+    height: 80%;
+    /* padding: 1rem 2rem;  */
+    background-color: rgb(255, 251, 238);
+    border: .4rem solid black;
+    border-radius: 1rem; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.inner-container-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inner-container-1 > h1 {
+    font-size: 6rem;
+}
+
+.brief1 {
+    width: 80%;
+    font-size: 3.5rem;
+}
+
+
+.btn-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.btn{
+    font-family: atma;
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+    border: 1px solid black;
+    box-shadow: 4px 4px black;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+}
+
+.btn:hover {
+    opacity: .9;
+    box-shadow: 2px 2px black;
+} 
+
+#btn1 {
+    background-color: #80604b;
+}
+
+#btn2 {
+    background-color: #be9f9d;
+}
+
+
+
+.inner-container-2 {
+    width: 100%;
+    height: auto;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scoreboard {
+    background-color: #cbdcdde6;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: .4rem solid black;
+}
+
+.status-block {
+    /* height: 6rem;
+    width: 10rem; */
+    font-size: 2.5em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+}
+
+.user, .user-score {
+    background-color: #ebffe3;
+    color: green;
+}
+.robot, .robot-score {
+    background-color: #ffeaea;
+    color: red;    
+}
+
+.log {
+    font-size: 2rem;
+    border-radius: 1rem;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(80, 94, 105);
+}
+
+.gesture {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgb(255, 254, 211);
+    padding: 30px 0px;
+    border-top: .4rem solid black;
+    border-bottom: .4rem solid black;
+}
+
+
+.gesture-block {
+    width: 100%;
+    display: relative;
+
+}
+.user-gesture {
+    width: 100%;
+}
+
+.robot-gesture {
+    width: 100%
+}
+
+.user-choice {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.arrow {
+    width: 8rem;
+    margin: 0rem 2rem;
+}
+
+#right-arrow {
+    transform: rotateZ(180deg);
+}
+
+.input-choice{
+    width: 8rem;
+    max-width: 11rem;
+    min-width: 5rem;
+}
+
+.input-choice:hover {
+    width: 10.2em;
+}
+
+.inner-container-3 {
+    width: 80%;
+    height: auto;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finishing-heading {
+    font-size: 4rem;
+    color: green;
+    text-shadow: 10px 10px 200px rgb(191, 255, 0), 5px 5px 50px rgb(207, 252, 71), 10px 10px 100px rgb(191, 255, 0), 2px 2px 5px rgb(253, 250, 59);
+}
+
+.finishing-msg {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+
+    :root{
+        font-size: 7px;
+    }
+
+    .container {
+        height: 70%;
+        width: 90%;
+        border: .2rem solid black;
+        border-radius: .7rem;
+    }
+
+    .btn {
+        font-size: 2.5rem;
+        padding: .8rem 1.5rem; 
+        margin-bottom: 1.5rem;
+    }
+}

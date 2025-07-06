@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/OdinProject/FoundatoinCourse/RockPaperScissors/style.css">
+    <script src="/OdinProject/FoundatoinCourse/RockPaperScissors/scripts.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="inner-container-1">
+            <h1>Rock, Paper, Scissor</h1>
+            <p class="brief1">You are human, right? A robot is challenging you for a rock, paper, scissor game. Are you ready?</p>
+            <div class="btn-container">
+                <button id="btn1" class="btn" onclick="enterGame()">Yes, Obviously</button>
+                <button onclick="" id="btn2" class="btn">Not Really</button>
+            </div>
+        </div>
+        <div class="inner-container-2">
+            <div class="scoreboard">
+                <div class="status-block user">User</div>
+                <div class="status-block user-score"></div>
+                <div class="status-block vs">-</div>
+                <div class="status-block robot">Robot</div>
+                <div class="status-block robot-score"></div>
+            </div>
+            <div class="log">
+
+            </div>
+            <div class="gesture">
+                <div class="gesture-block"><img src="./img/rock-user.png" class="user-gesture"></div>
+                <div class="gesture-block">
+                <img src="./img/rock-robot.png" class="robot-gesture"></div>
+            </div>
+            <div class="user-choice">
+                <img src="./img/arrow.gif" class="arrow" id="left-arrow">
+                <img src="./img/input-paper.png" class="input-choice" id="input-paper">
+                <img src="./img/input-rock.png" class="input-choice" id="input-rock">
+                <img src="./img/input-scisser.png" class="input-choice" id="input-scisser">
+                <img src="./img/arrow.gif" class="arrow" id="right-arrow">
+            </div>
+        </div>
+        <div class="inner-container-3">
+            <div class="finishing-heading">
+            </div>
+            <div class="finishing-msg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
