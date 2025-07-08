@@ -55,9 +55,8 @@ body {
     width: 120px;
     top:  -32px;
     left: -29px;
-    animation: moving-planet 2s linear infinite;
-    z-index: 1000;
-    
+    animation: moving-planet 5s linear infinite;
+    z-index: 999;
 }
 
 .line[data-index="2"] {
@@ -66,7 +65,7 @@ body {
     top:  -66px;
     left: -70px;
     animation: moving-planet 10s linear infinite;
-    z-index: 999;
+    z-index: 998;
 }
 
 .line[data-index="3"] {
@@ -74,7 +73,7 @@ body {
     width: 280px;
     top:  -96px;
     left: -110px;
-    animation: moving-planet 6s linear infinite;
+    animation: moving-planet 14s linear infinite;
 }
 
 .planet {
@@ -182,9 +181,9 @@ body {
 }
 
 .subline[data-index="4"] {
-    height: 65px;
-    width: 55px;
-    top: -10px;
+    height: 30px;
+    width: 40px;
+    bottom: -4px;
     right: -10px;
     border-radius: 50%;
     animation: moving-planet 8s linear infinite;
@@ -192,10 +191,11 @@ body {
 } 
 
 .subline[data-index="5"] {
-    height: 15px;
-    width: 25px;
+    height: 20px;
+    width: 40px;
     top: -10px;
     right: -10px;
+
     animation: moving-planet 6s linear infinite;
     z-index: -1;
 } 
