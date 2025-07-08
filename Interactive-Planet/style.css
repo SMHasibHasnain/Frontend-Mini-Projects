@@ -1,0 +1,232 @@
+body {
+    font-family: "Saira Stencil One", sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(41, 40, 40);
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.model {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(31, 30, 30);
+    background-image: url(./img/sky.jpeg);
+    background-size: 200px;
+    opacity: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    z-index: 0;
+}
+
+.sun {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-image: radial-gradient(rgb(168, 11, 11) 20%, red 50%, orange 80%, rgb(138, 90, 32) 90%);
+    position: relative;
+    box-shadow: 0 0 20px rgb(220, 129, 115);
+    animation: sun-light 2s linear infinite alternate;
+    z-index: 1;
+}
+
+.sun:hover {
+    animation-play-state: paused;
+    box-shadow: 0 0 65px rgb(184, 150, 143), 0px 0px 100px rgb(193, 147, 147),0px 0px 150px rgb(240, 200, 200)!important;
+}
+
+.line {
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    
+}
+
+.line[data-index="1"] {
+    height: 120px;
+    width: 120px;
+    top:  -32px;
+    left: -29px;
+    animation: moving-planet 2s linear infinite;
+    z-index: 1000;
+    
+}
+
+.line[data-index="2"] {
+    height: 200px;
+    width: 200px;
+    top:  -66px;
+    left: -70px;
+    animation: moving-planet 10s linear infinite;
+    z-index: 999;
+}
+
+.line[data-index="3"] {
+    height: 280px;
+    width: 280px;
+    top:  -96px;
+    left: -110px;
+    animation: moving-planet 6s linear infinite;
+}
+
+.planet {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.planet[data-index="1"] {
+    background-color: tomato;
+    top: 15px;
+}
+
+.planet[data-index="2"] {
+    background-color: violet;
+    top: 30px;
+    right: 10px;
+}
+.planet[data-index="3"] {
+    background-color: rgb(130, 231, 238);
+    top: 50px;
+    right: 10px;
+}
+
+.line[data-index="1"]:has(.planet[data-index="1"]:hover),
+.line[data-index="2"]:has(.planet[data-index="2"]:hover),
+.line[data-index="3"]:has(.planet[data-index="3"]:hover) {
+    animation-play-state: paused;
+}
+
+
+.model-heading {
+    position: absolute;
+    background-size: 200% 200%;
+    font-size: 30px;
+    line-height: 30px;
+    background-image: linear-gradient(to bottom, rgb(148, 148, 148), rgb(47, 49, 113), rgb(150, 87, 87));
+    background-clip: text;
+    color: transparent;
+    animation: heading-tide 5s ease-in infinite alternate-reverse;
+    opacity: .4;
+    top: 190px;
+    text-transform: uppercase;
+}
+
+.model-heading > span {
+    font-size: 20px;
+    background: linear-gradient(#a572a5, #ab2525, orange, blue);
+    background-size: 800% 800%;
+    background-clip: text;
+    animation: heading-tide 5s ease-in infinite alternate-reverse;
+}
+
+.subline {
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    
+}
+
+.subplanet {
+    height: 8px;
+    width: 8px; 
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.subline[data-index="1"] {
+    height: 38px;
+    width: 38px;
+    top: -7px;
+    right: -7px;
+    animation: moving-planet 3s linear infinite;
+} 
+
+.subplanet[data-index="1"] {
+    background-color: rgb(100, 132, 122);
+    top: 25px;
+}
+
+.subline[data-index="2"] {
+    height: 48px;
+    width: 48px;
+    top: -12px;
+    right: -13px;
+    animation: moving-planet 4s linear infinite;
+} 
+.subplanet[data-index="2"] {
+    background-color: rgb(99, 94, 133);
+    top: 5px;
+}
+
+.subline[data-index="3"] {
+    height: 58px;
+    width: 58px;
+    top: -18px;
+    right: -17px;
+    animation: moving-planet 15s linear infinite;
+} 
+.subplanet[data-index="3"] {
+    background-color: rgb(187, 190, 130);
+    top: 5px;
+}
+
+.subline[data-index="4"] {
+    height: 65px;
+    width: 55px;
+    top: -10px;
+    right: -10px;
+    border-radius: 50%;
+    animation: moving-planet 8s linear infinite;
+    z-index: -1;
+} 
+
+.subline[data-index="5"] {
+    height: 15px;
+    width: 25px;
+    top: -10px;
+    right: -10px;
+    animation: moving-planet 6s linear infinite;
+    z-index: -1;
+} 
+
+@keyframes heading-tide {
+    0% {
+        background-position: 0% 0%;
+    } 100% {
+        background-position: 100% 100%;
+    }
+}
+
+
+@keyframes moving-planet {
+    0%{
+        transform: rotateZ(0deg);
+    } 100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes sun-light {
+    0% {
+        box-shadow: 0 0 20px rgb(173, 135, 128);
+    } 25% {
+        box-shadow: 0 0 35px rgb(194, 161, 155);
+    } 50% {
+        box-shadow: 0 0 45px rgb(173, 143, 138);
+    } 75% {
+        box-shadow: 0 0 55px rgb(202, 157, 149);
+    } 100% {
+        box-shadow: 0 0 65px rgb(184, 150, 143);
+    }
+}

@@ -39,7 +39,10 @@ html, body, head, h1, p {
   
 
 body {
-    background-color: #e9e9e9;
+    background-image: url(./img/bg.jpg);
+    background-repeat: repeat;
+    background-size: 20rem;
+    background-color: #e7e7e7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,12 +56,13 @@ body {
     min-width: 50rem;
     min-height: 50rem;
     /* padding: 1rem 2rem;  */
-    background-color: rgb(255, 251, 238);
+    background-color: rgb(254, 254, 234);
     border: .4rem solid black;
     border-radius: 1rem; 
     text-align: center;
     display: flex;
     justify-content: center;
+    box-shadow: 2px 2px 35px rgb(173, 151, 151);
 }
 
 .inner-container-1{
@@ -104,7 +108,7 @@ body {
 } 
 
 #btn1 {
-    background-color: #80604b;
+    background-color: #725557;
 }
 
 #btn2 {
@@ -123,7 +127,7 @@ body {
 }
 
 .scoreboard {
-    background-color: #cbdcdde6;
+    background-color: #9dbcbde6;
     width: 100%;
     height: 10vh;
     display: flex;
@@ -144,15 +148,21 @@ body {
     margin: .5rem;
     padding: .5rem 1rem;
     border-radius: 1rem;
+    box-shadow: .1px .5px 2px rgb(72, 95, 97);
+
 }
 
+.vs {
+    font-size: 3.5rem;
+    margin: 0px 10px;
+}
 .user, .user-score {
-    background-color: #ebffe3;
-    color: green;
+    background-color: #357139;
+    color: rgb(255, 255, 255);
 }
 .robot, .robot-score {
-    background-color: #ffeaea;
-    color: red;    
+    background-color: #985c4d;
+    color: rgb(255, 255, 255);    
 }
 
 .log {
