@@ -60,6 +60,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    animation: rainbow-shadow 3s ease-in infinite alternate;
 }
 
 .pixel {
@@ -71,9 +72,11 @@ main {
     font-size: 2rem;
 }
 
-.color-selection, .manual-color-selection{
+.color-selection{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -101,10 +104,13 @@ footer {
 }
 
 button {
+    font-family: inherit;
     font-size: 1.5rem;
     padding: .5rem 1rem;
     margin: .5rem 0rem;
     border-radius: 1rem;
+    border: 1px solid rgb(126, 126, 126);
+    box-shadow: 1px 1px 2px rgb(47, 47, 47);
 }
 
 input[type="color"] {
@@ -117,6 +123,7 @@ input[type="color"] {
     border: 3px solid rgb(0, 0, 0);
     border-radius: 100%;
     box-shadow: 0 0 5px black;    
+    /* animation: rainbow-shadow 3s ease-in infinite alternate; */
 }
 
 input[type="color"] {
@@ -133,9 +140,8 @@ input[type="color"]::-moz-color-swatch {
     border-radius: 50%;
 }
 
-button:hover {
-    background-color: rgb(52, 52, 52);
-    color: white;
+button:hover:not(.selectedColor) {
+    box-shadow: 0 0 0;
 }
 
 .text {
@@ -153,6 +159,7 @@ button:hover {
 
 .subsettings {
     margin: 5rem 0;
+    letter-spacing: normal;
 }
 
 .subsettings > * {
@@ -171,8 +178,53 @@ button:hover {
 
 label[for="range"],
 label[for="showGridLinesOrNot"] {
-    font-size: 1.4rem;
+    font-size: 2rem;
+    line-height: normal;
 }
+
+.animated-heading {
+    background-image: linear-gradient(to bottom right, rgb(184, 184, 184), rgb(77, 77, 77), rgb(38, 38, 38));
+    background-size: 400% 400%;
+    background-clip: text;
+    color: transparent;
+    animation: text-tide 1s ease-in infinite alternate; 
+    background-color: black;
+    
+}
+
+/* .auto-color-button {
+    animation: rainbow-shadow 3s ease-in infinite alternate;
+}
+
+.auto-color-button:hover {
+    animation: none;
+    cursor: pointer;
+} */
+
+@keyframes rainbow-shadow {
+    0% {
+        box-shadow: 0 0 1rem rgb(219, 219, 219);
+    } 20% {
+        box-shadow: 0 0 1.5rem rgb(183, 183, 183);
+    } 40% {
+        box-shadow: 0 0 2rem rgb(154, 154, 154);
+    } 60% {
+        box-shadow: 0 0 2.5rem rgb(121, 121, 121);
+    } 80% {
+        box-shadow: 0 0 3rem rgb(82, 82, 82);
+    } 100% {
+        box-shadow: 0 0 3.5rem rgb(52, 52, 52);
+    }
+}
+
+@keyframes text-tide {
+    0% {
+        background-position: 0% 0%;
+    } 100% {
+        background-position: 100% 100%;
+    }    
+}
+
 
 @media only screen and (max-width: 600px) {
 
@@ -190,7 +242,8 @@ label[for="showGridLinesOrNot"] {
     }
 
     main {
-        gap: 20px;
+        gap: 8rem;
+        margin: 5rem;
     }
 
     .canvas {

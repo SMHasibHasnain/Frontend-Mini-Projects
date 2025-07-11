@@ -290,7 +290,7 @@ function autoModeSelect() {
     modeNormal.classList.add("selectedColor");
 }
 
-clear.addEventListener("click", ()=> {
+clear.addEventListener("click", ()=>{
     clearCanvas();
 })
 
