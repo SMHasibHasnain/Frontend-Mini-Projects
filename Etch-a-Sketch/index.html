@@ -16,7 +16,7 @@
   <main>
     <section id="left">
 
-        <h2 class="subheading">Color</h2>
+        <h2 class="subheading modded">Color</h2>
       <div class="color-selection">
         <div class="manual-color-selection">
           <input type="color" class="color" />
@@ -25,18 +25,26 @@
         <button class="auto-color-button">Take Random Color</button>
       </div>
       
-      <h2 class="subheading">Tools</h2>
+      <h2 class="subheading modded">Tools</h2>
       <div class="tools-normal">
         <button class="tool pencil-tool">Pencil</button>
         <button class="tool eraser-tool">Eraser</button>
       </div>
 
-      <h2 class="subheading">Modes</h2>
+      <h2 class="subheading modded">Modes</h2>
       <div class="modes">
         <button class="mode mode-normal">Normal Mode</button>
         <button class="mode mode-magic">Magic Mode</button>
       </div>
       
+      <div class="subsettings selectedDisplay">
+        <label for="range">GridLines:</label>
+        <input type="range" min="1" max="50" id="range">
+        <br>
+        <input type="checkbox" checked id="showGridLinesOrNot">
+        <label for="showGridLinesOrNot">Show GridLines or Not</label>
+      </div>
+
       <button class="settings">Setting</button>
     </section>
 

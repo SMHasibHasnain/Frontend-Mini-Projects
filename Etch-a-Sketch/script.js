@@ -14,6 +14,21 @@ const modeMagic = document.querySelector(".mode-magic");
 
 const canvas = document.querySelector(".canvas");
 
+let settings = false;
+const settingsBtn = document.querySelector(".settings");
+
+const subsettings = document.querySelector(".subsettings");
+
+const gridRangeInput = document.querySelector("#range");
+
+let showGrid = "on";
+const showGridLinesOrNot = document.querySelector("#showGridLinesOrNot");
+
+const colorSelection = document.querySelector(".color-selection");
+const toolsNormal = document.querySelector(".tools-normal");
+const modes = document.querySelector(".modes");
+const modded = document.querySelectorAll(".modded");
+
 let gridSize = 16;
 let gridUnits;
 
@@ -60,6 +75,10 @@ function removeListeners() {
         gridUnits[i] = removeAllListeners(gridUnits[i]);
     }
     gridUnits = document.querySelectorAll(".pixel");
+}
+
+function deleteNodes() {
+    canvas.innerHTML = "";
 }
 
 function applyMagicMode() {
@@ -123,7 +142,12 @@ eraserTool.addEventListener("click", ()=> {
 manualColorInput.addEventListener("input", ()=>{
     color = manualColorInput.value;
     autoColor = false;
+});
 
+manualColorInput.addEventListener("click", ()=>{
+    color = manualColorInput.value;
+    autoColor = false;
+    autoColorButton.classList.remove("selectedColor");
 });
 
 autoColorButton.addEventListener("click", ()=> {
@@ -141,6 +165,50 @@ function takeRandomColor() {
     const randomColors = ["blue", "red", "yellow", "orange"];
     let x = Math.floor(Math.random() * randomColors.length);
     return randomColors[x];
+}
+
+settingsBtn.addEventListener("click", ()=> {
+    settingsBtn.classList.toggle("selectedColor");
+    openOrCloseSettings();
+    if(settings == false) {
+        settings = true;
+    } else {
+        settings = false;
+    }
+});
+
+function openOrCloseSettings() {
+    colorSelection.classList.toggle("selectedDisplay");
+    toolsNormal.classList.toggle("selectedDisplay");
+    modes.classList.toggle("selectedDisplay");
+    subsettings.classList.toggle("selectedDisplay");
+    for(let i=0; i<modded.length; i++) {
+        modded[i].classList.toggle("selectedDisplay");
+    }
+    
+}
+
+gridRangeInput.addEventListener("input", ()=> {
+    gridSize = parseInt(gridRangeInput.value);
+    deleteNodes();
+    makeGrid();
+})
+
+showGridLinesOrNot.addEventListener("click", ()=> {
+    let x = showGridLinesOrNot.value;
+    test(x);
+    if(showGrid == "off") {
+        showGrid = "on";
+    } else {
+        showGrid = "off";
+    }
+    gridUnits.forEach(pixel => {
+        pixel.style.border = (showGrid === "on") ? "1px solid black" : "none";
+    });
+})
+
+function test(x) {
+    console.log(x);
 }
 
 pencilTool.classList.toggle("selectedColor");
