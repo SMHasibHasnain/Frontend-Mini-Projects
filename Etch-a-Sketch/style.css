@@ -22,7 +22,7 @@ header {
     width: 100%;
     height: max-content;
     background-color: rgb(214, 214, 214);
-    border-bottom: 1rem solid rgb(198, 198, 198);
+    /* border-bottom: 1rem solid rgb(198, 198, 198); */
 }
 
 main {
@@ -103,6 +103,38 @@ button {
     border-radius: 1rem;
 }
 
+input[type="color"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 5rem;
+    height: 5rem;
+    background-image: url(./img/color-picker.png);
+    background-size: contain;
+    cursor: pointer;
+    border-radius: 100%;
+    
+}
+
+input[type="color"] {
+    padding: 0;
+}
+  
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
+  
+input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
+
+button:hover {
+    background-color: rgb(52, 52, 52);
+    color: white;
+}
+
 .text {
     font-size: 2rem;
 }
@@ -114,6 +146,27 @@ button {
 
 .selectedDisplay {
     display: none;
+}
+
+.subsettings {
+    margin: 5rem 0;
+}
+
+.subsettings > * {
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: .1rem;
+}
+
+.settings {
+    margin: 2rem 0;
+    width: 80%;
+    box-shadow: 2px 2px black, 0 0 20px rgb(147, 171, 181);
+}
+
+label[for="range"],
+label[for="showGridLinesOrNot"] {
+    font-size: 1.4rem;
 }
 
 @media only screen and (max-width: 600px) {

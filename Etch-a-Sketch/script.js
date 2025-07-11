@@ -34,6 +34,29 @@ let gridUnits;
 
 makeGrid();
 
+function modeReset() {
+    if(pencil == false) {
+        pencilTool.classList.toggle("selectedColor");
+    }
+    pencil = true;
+    if(eraser == true) {
+        eraserTool.classList.toggle("selectedColor");
+    }
+    eraser = false;
+    color = "black";
+    if(eraser == true) {
+        autoColorButton.classList.toggle("selectedColor");
+    }
+    autoColor = false;
+    if(mode == "magic") {
+        modeNormal.classList.toggle("selectedColor");
+        modeMagic.classList.toggle("selectedColor");
+    }
+    mode = "normal";
+    applyNormalMode();
+    console.log(mode);
+}
+
 function makeGrid() {
     for (let i = 0; i < gridSize; i++) {
         for(let j = 0; j < gridSize; j++) {
@@ -192,11 +215,11 @@ gridRangeInput.addEventListener("input", ()=> {
     gridSize = parseInt(gridRangeInput.value);
     deleteNodes();
     makeGrid();
+    modeReset();
 })
 
 showGridLinesOrNot.addEventListener("click", ()=> {
     let x = showGridLinesOrNot.value;
-    test(x);
     if(showGrid == "off") {
         showGrid = "on";
     } else {
@@ -207,9 +230,10 @@ showGridLinesOrNot.addEventListener("click", ()=> {
     });
 })
 
-function test(x) {
-    console.log(x);
+autoModeSelect();
+
+function autoModeSelect() {
+    pencilTool.classList.toggle("selectedColor");
+    modeNormal.classList.add("selectedColor");
 }
 
-pencilTool.classList.toggle("selectedColor");
-modeNormal.classList.add("selectedColor");
