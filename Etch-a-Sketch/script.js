@@ -44,7 +44,7 @@ function modeReset() {
     }
     eraser = false;
     color = "black";
-    if(eraser == true) {
+    if(autoColor == true) {
         autoColorButton.classList.toggle("selectedColor");
     }
     autoColor = false;
@@ -54,7 +54,6 @@ function modeReset() {
     }
     mode = "normal";
     applyNormalMode();
-    console.log(mode);
 }
 
 function makeGrid() {
@@ -185,9 +184,16 @@ autoColorButton.addEventListener("click", ()=> {
 });
 
 function takeRandomColor() {
-    const randomColors = ["blue", "red", "yellow", "orange"];
-    let x = Math.floor(Math.random() * randomColors.length);
-    return randomColors[x];
+    // const randomColors = ["blue", "red", "yellow", "orange"];
+    // let x = Math.floor(Math.random() * randomColors.length);
+    // return randomColors[x];
+
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    let rgb = `rgb(${r},${g},${b})`;
+    return rgb;
 }
 
 settingsBtn.addEventListener("click", ()=> {
