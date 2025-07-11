@@ -71,10 +71,18 @@ main {
     font-size: 2rem;
 }
 
-.color-selection, .manual-color-selection, .modes{
+.color-selection, .manual-color-selection{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.modes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
 }
 
 .tools-normal {
@@ -83,10 +91,6 @@ main {
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-}
-
-.color {
-    
 }
 
 footer {
@@ -109,20 +113,19 @@ input[type="color"] {
     -moz-appearance: none;
     width: 5rem;
     height: 5rem;
-    background-image: url(./img/color-picker.png);
-    background-size: contain;
     cursor: pointer;
+    border: 3px solid rgb(0, 0, 0);
     border-radius: 100%;
-    
+    box-shadow: 0 0 5px black;    
 }
 
 input[type="color"] {
-    padding: 0;
+    padding: 0px!important;
 }
   
 input[type="color"]::-webkit-color-swatch {
-    border: none;
-    border-radius: 50%;
+    border: none!important;
+    border-radius: 100%;
 }
   
 input[type="color"]::-moz-color-swatch {
@@ -158,10 +161,12 @@ button:hover {
     line-height: .1rem;
 }
 
-.settings {
-    margin: 2rem 0;
-    width: 80%;
-    box-shadow: 2px 2px black, 0 0 20px rgb(147, 171, 181);
+.control {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+
 }
 
 label[for="range"],

@@ -2,6 +2,8 @@ let pencil = true;
 const pencilTool = document.querySelector(".pencil-tool");
 let eraser = false;
 const eraserTool = document.querySelector(".eraser-tool");
+let shedding = false;
+const sheddingTool = document.querySelector(".shedding-tool");
 let color= "black";
 const manualColorInput = document.querySelector(".color");
 
@@ -29,6 +31,8 @@ const toolsNormal = document.querySelector(".tools-normal");
 const modes = document.querySelector(".modes");
 const modded = document.querySelectorAll(".modded");
 
+const clear = document.querySelector(".clear");
+
 let gridSize = 16;
 let gridUnits;
 
@@ -43,6 +47,10 @@ function modeReset() {
         eraserTool.classList.toggle("selectedColor");
     }
     eraser = false;
+    if(shedding == true) {
+        sheddingTool.classList.toggle("selectedColor");
+    }
+    shedding = false;
     color = "black";
     if(autoColor == true) {
         autoColorButton.classList.toggle("selectedColor");
@@ -81,6 +89,18 @@ function applyNormalMode() {
                 gridUnits[i].style.backgroundColor = color;
             } else if (eraser == true) {
                 gridUnits[i].style.backgroundColor = "transparent";
+                gridUnits[i].style.opacity = "1.0";
+            }  else if (shedding == true) {
+                if(gridUnits[i].style.opacity > 0.0 && gridUnits[i].style.opacity < 1.0) {
+                    let x = Number(gridUnits[i].style.opacity);
+                    gridUnits[i].style.opacity = x + 0.1;
+                } else {
+                    if(autoColor == true) {
+                        color = takeRandomColor();
+                    }
+                    gridUnits[i].style.backgroundColor = color;
+                    gridUnits[i].style.opacity = 0.2;
+                }
             }
         });      
     }
@@ -113,6 +133,18 @@ function applyMagicMode() {
                 gridUnits[i].style.backgroundColor = color;
             } else if (eraser == true) {
                 gridUnits[i].style.backgroundColor = "transparent";
+                gridUnits[i].style.opacity = "1.0";
+            } else if (shedding == true) {
+                if(gridUnits[i].style.opacity > 0.0 && gridUnits[i].style.opacity < 1.0) {
+                    let x = Number(gridUnits[i].style.opacity);
+                    gridUnits[i].style.opacity = x + 0.1;
+                } else {
+                    if(autoColor == true) {
+                        color = takeRandomColor();
+                    }
+                    gridUnits[i].style.backgroundColor = color;
+                    gridUnits[i].style.opacity = 0.1;
+                }
             }
         });      
     }
@@ -146,9 +178,26 @@ pencilTool.addEventListener("click", ()=> {
     } else {
         pencil = true;
         eraser = false;
+        shedding = false;
         eraserTool.classList.remove("selectedColor");
+        sheddingTool.classList.remove("selectedColor");
     }
 });
+
+sheddingTool.addEventListener("click", ()=> {
+    sheddingTool.classList.toggle("selectedColor");
+    if(shedding == true) {
+        shedding = false;
+    } else {
+        shedding = true;
+        pencil = false;
+        eraser = false;
+        eraserTool.classList.remove("selectedColor");
+        pencilTool.classList.remove("selectedColor");
+    }
+});
+
+
 
 eraserTool.addEventListener("click", ()=> {
     eraserTool.classList.toggle("selectedColor");
@@ -157,7 +206,9 @@ eraserTool.addEventListener("click", ()=> {
     } else {
         eraser = true;
         pencil = false;
+        shedding = false;
         pencilTool.classList.remove("selectedColor");
+        sheddingTool.classList.remove("selectedColor");
     }
 })
 
@@ -184,10 +235,6 @@ autoColorButton.addEventListener("click", ()=> {
 });
 
 function takeRandomColor() {
-    // const randomColors = ["blue", "red", "yellow", "orange"];
-    // let x = Math.floor(Math.random() * randomColors.length);
-    // return randomColors[x];
-
     let r = Math.floor(Math.random() * 255);
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
@@ -243,3 +290,13 @@ function autoModeSelect() {
     modeNormal.classList.add("selectedColor");
 }
 
+clear.addEventListener("click", ()=> {
+    clearCanvas();
+})
+
+function clearCanvas() {
+    for(let i=0; i<gridUnits.length; i++) {
+        gridUnits[i].style.backgroundColor = "transparent";
+        gridUnits[i].style.opacity = "1.0";
+    }
+}
