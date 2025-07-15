@@ -32,9 +32,9 @@ body {
   border-radius: 10px;
   box-shadow: 3px -2px rgb(43, 43, 43) inset;
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: end;
-  align-items: self-end;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
 }
 
 .keys-block {
@@ -95,6 +95,14 @@ button {
   background-color: transparent;
   border: none;
   font-size: 3rem;
+}
+
+.history {
+  width: 95%;
+  height: 30%;
+  font-size: 2rem;
+  margin: 5px 5px 1px 0px;
+  text-align: right;
 }
 
 input:focus {
