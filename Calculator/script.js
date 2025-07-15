@@ -31,9 +31,20 @@ buttons.forEach( button => {
 
 function getInput(value) {
 
-  if(value == "%") {
-
+  if (value == "%") {
+    showCalc.value = showCalc.value.slice(0, -1);
+  
+    if (calcStr.length > 0) {
+      calcStr = calcStr.slice(0, -1);
+    } else if (calcStack.length > 0) {
+      const last = calcStack.pop();
+      if (!["+", "-", "*", "/"].includes(last)) {
+        calcStr = last.toString().slice(0, -1); //
+      }
+    }
+    return;
   }
+  
 
   if (stateFlag == true && !["+", "-", "*", "/"].includes(value)) {
     refresh();
@@ -100,7 +111,7 @@ function doCalculate() {
     }
   }
   
-  showCalc.value = cal.toPrecision(3);
+  showCalc.value = cal.toPrecision(5);
   calcStack.splice(0, calcStack.length, cal);
 
   stateFlag = true;
