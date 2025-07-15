@@ -2,8 +2,9 @@ const buttons = document.querySelectorAll("button");
 const showCalc = document.querySelector(".calc");
 const showHistory = document.querySelector("p");
 const calcStack = [];
+const btnNmbrs = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let calcStr = "";
-let y;
+let stateFlag = false;
 
 
 buttons.forEach( button => {
@@ -29,22 +30,38 @@ buttons.forEach( button => {
 
 
 function getInput(value) {
+
+  if(value == "%") {
+
+  }
+
+  if (stateFlag == true && !["+", "-", "*", "/"].includes(value)) {
+    refresh();
+    calcStack.shift();
+    console.log(calcStack);
+  }
+
+  stateFlag = false;
+
   if(value == "=") {
     calcStack.push(calcStr);
+    console.log(calcStack);
     calcStr = "";
     const x = showCalc.value;
     showCalc.value = "";
     doCalculate();
     showHistory.innerText = x;
-  } else if(value == "*" || value == "+" || value == "-" || value =="/" || value=="%"){
-    calcStack.push(calcStr);
+  } else if(value == "*" || value == "+" || value == "-" || value =="/"){
+    if (calcStr != "") {
+      calcStack.push(calcStr);
+      calcStr = "";
+    }
     calcStr = "";
     calcStack.push(value);
     showCalc.value += value;
   } else if(value == "C") {
+    refresh();
     calcStack.splice(0, calcStack.length);
-    calcStr = "";
-    showCalc.value = "";
     showHistory.innerText = "";
   } else {
     showCalc.value += value;
@@ -52,15 +69,21 @@ function getInput(value) {
   }
 }
 
-function doCalculate() {
+function refresh() {
+  calcStr = "";
+  showCalc.value = "";
+}
 
+function doCalculate() {
   console.log(calcStack);
 
   let cal = 0;
   let calType = "";
   
-  calcStack.forEach(element => {
-    if(element >= 0 || element <=9) {
+  for(let i=0; i<calcStack.length; i++) {
+    let element = calcStack[i];
+    if(!isNaN(element) && !["+", "-", "*", "/"].includes(element)) {
+      console.log("element" + element);
       if(calType == "+") {
         cal += Number(element);
       } else if(calType == "-") {
@@ -69,16 +92,16 @@ function doCalculate() {
         cal /= Number(element);
       } else if(calType == "*") {
         cal *= Number(element);
-      } else if(calType == "%") {
-        cal = Number(element) % cal;
       } else {
         cal = Number(element);
       }
     } else {
       calType = element;
     }
-  });
+  }
+  
+  showCalc.value = cal.toPrecision(3);
+  calcStack.splice(0, calcStack.length, cal);
 
-  showCalc.value = cal;
-  console.log(showCalc.value);
+  stateFlag = true;
 }
