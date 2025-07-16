@@ -39,7 +39,7 @@ function getInput(value) {
     } else if (calcStack.length > 0) {
       const last = calcStack.pop();
       if (!["+", "-", "*", "/"].includes(last)) {
-        calcStr = last.toString().slice(0, -1); //
+        calcStr = last.toString().slice(0, -1);
       }
     }
     return;
