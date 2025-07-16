@@ -81,7 +81,7 @@ body {
 }
 
 .btn-row>.btn:last-child {
-  background-image: linear-gradient(to right bottom, #fd9300, #7c3b1b);
+  background-image: linear-gradient(to right bottom, #606b79, #4b433e);
 }
 
 .btn-row>.btn:last-child:hover {
